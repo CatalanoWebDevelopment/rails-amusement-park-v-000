@@ -1,0 +1,35 @@
+<div class="heading">
+    <h1>Hey <%= @user.name %>! Welcome to Holiday World! </h1>
+</div>
+
+<div class="content">
+    <h3>Here's what we know about you:</h3>
+    
+    <br>
+    
+    <ul>
+        <li>Your Current Mood: <%= @user.mood %></li><br>
+        <li>Your Height (in inches): <%= @user.height %></li><br>
+        <li>Tickets: <%= @user.tickets%></li><br>
+        <li>Your Nausea Level (out of 5): <%= @user.nausea %></li><br>
+        
+        <% if @user.admin %>
+            <li>You're a theme park ADMIN!</li>
+        <% else %>
+            <li>You're not a theme park operator</li>
+        <% end %>
+    </ul>
+</div>
+
+<div class="content">
+    <% if flash[:notice] %>
+        <h3><%= flash[:notice] %></h3>
+    <% end %>
+</div>
+
+<br><br><br><br>
+
+<div class="content">
+    <%= link_to "Attractions", attractions_path %> || <%= link_to "Log Out", :controller=> "sessions", :action=> "destroy" %>
+</div>
+

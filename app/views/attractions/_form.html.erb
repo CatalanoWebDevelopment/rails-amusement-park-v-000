@@ -1,0 +1,43 @@
+<div class="content">
+    <%= form_for @attraction do |f| %>
+        <% if @attraction.errors.any? %>
+            <div id="error_explanation">
+                <h2>There were some errors:</h2>
+                <ul>
+                    <% @attraction.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        
+        <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        <br>
+        <div class="field">
+            <%= f.label :nausea_rating %>
+            <%= f.number_field :nausea_rating %> (out of 5)
+        </div>
+        <br>
+        <div class="field">
+            <%= f.label :happiness_rating %>
+            <%= f.number_field :happiness_rating %> (out of 5)
+        </div>
+        <br>
+        <div class="field">
+            <%= f.label :tickets %>
+            <%= f.number_field :tickets %>
+        </div>
+        <br>
+        <div class="field">
+            <%= f.label :min_height %>
+            <%= f.number_field :min_height %> (in inches)
+        </div>
+        <br>
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div>

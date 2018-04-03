@@ -1,0 +1,32 @@
+<div class="heading"><h1>Welcome to Holiday World! Please Login Below:</h1></div>
+
+<br>
+
+<div class="content">
+    <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
+        <% if @user.errors.any? %>
+            <div id="error_explanation">
+                <h2>There were some errors:</h2>
+                <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        
+        <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        <br>
+        <div class="field">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
+        <br>
+        <div class="actions">
+            <%= f.submit "Sign In" %>
+        </div>
+    <% end %>
+</div>

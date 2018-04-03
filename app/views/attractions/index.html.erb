@@ -1,0 +1,23 @@
+<div class="heading">
+    <h1>The Rides of a Lifetime!</h1>
+</div>
+
+<br><br>
+
+<% if !current_user.admin %>
+<div class="content">
+    <ul>
+        <% @attractions.each do |attraction| %>
+            <li><%= link_to "Go on #{attraction.name}", attraction %></li><br>
+        <% end %>
+    </ul>
+</div>
+<% else %>
+<div class="content">
+    <ul>
+        <% @attractions.all.each do |a| %>
+            <li><%= link_to "Show #{a.name}", a %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
